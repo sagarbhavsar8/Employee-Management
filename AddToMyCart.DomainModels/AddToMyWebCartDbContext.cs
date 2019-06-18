@@ -15,5 +15,6 @@ namespace AddToMyCart.DomainModels
         public DbSet<City> Cities { get; set; }
         public DbSet<Calendar> Calendars { get; set; }
         public DbSet<SetPriority> SetPriorities { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

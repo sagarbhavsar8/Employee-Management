@@ -17,7 +17,7 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/home/index">My Agenda</a>
         <div class="col-sm-8 overflow-auto nav-item">
             <span class="h6 text-capitalize text-primary fa-underline">This Week Tasks</span>
-            @if (Session["CreateHeadline"].ToString() != "")
+            @if (Session["CreateHeadline"] != null)
             {
                 <marquee direction="right" class="text-white" width="auto">
                     @Session["CreateHeadline"].ToString()
@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-tabs" href="#">
+                            <a class="nav-link nav-tabs" href="/products/products">
                                 <span data-feather="shopping-cart"></span>
                                 Products
                             </a>

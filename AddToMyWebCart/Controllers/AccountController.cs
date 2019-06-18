@@ -178,9 +178,24 @@ namespace AddToMyWebCart.Controllers
 
         public ActionResult Photos()
         {
-            string filepath = "~/UploadedImage/" + Session["CurrentUserID"].ToString() + "/";
-            string[] str = Directory.GetFiles(Server.MapPath(filepath));
-            ViewBag.userFiles = str;
+            if (Session["CurrentUserID"] != null)
+            {
+                string filepath = "~/UploadedImage/" + Session["CurrentUserID"].ToString() + "/";
+                if (Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(Server.MapPath(filepath));
+                    string[] str = Directory.GetFiles(Server.MapPath(filepath));
+                    ViewBag.userFiles = str;
+                }
+                else
+                {
+                    ViewBag.userFiles = null;
+                }
+            }
+            else
+            {
+                ViewBag.userFiles = null;
+            }
             return View();
         }
 

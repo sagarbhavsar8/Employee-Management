@@ -1,0 +1,38 @@
+﻿@model AddToMyWebCart.IdentityViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row col-lg-12">
+        <span class="h4">Identity Register</span>
+    </div>
+    <div class="mt-2 row border-bottom col-lg-12"></div>
+    <div class="row form-signin mt-3">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(Model => Model.Username)
+                    @Html.TextBoxFor(Model => Model.Username, new { placeholder = "User Name", @class = "form-control" })
+                    @Html.ValidationMessageFor(Model => Model.Username)
+                </div>
+
+                <div class="col-md-6 form-group">
+                    @Html.LabelFor(Model => Model.Password)
+                    @Html.TextBoxFor(Model => Model.Password, new { placeholder = "Password", @class = "form-control" })
+                    @Html.ValidationMessageFor(Model => Model.Password)
+                </div>
+            </div>
+            
+            @Html.ValidationSummary()
+            <div class="row form-signin">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

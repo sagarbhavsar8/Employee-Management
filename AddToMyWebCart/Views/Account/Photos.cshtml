@@ -18,11 +18,18 @@
 
     <div class="row col-sm-8 mt-2 border border" id="userImages">
         @{
-            foreach (var imgFiles in ViewBag.userFiles)
+            if (ViewBag.userFiles != null)
             {
-                <div class="thumbnail">
-                    <img class="img-thumbnail" src="~/UploadedImage/@Session["CurrentUserID"].ToString()/@Path.GetFileName(imgFiles)" width="150" height="150" />
-                </div>
+                foreach (var imgFiles in ViewBag.userFiles)
+                {
+                    <div class="thumbnail">
+                        <img class="img-thumbnail" src="~/UploadedImage/@Session["CurrentUserID"].ToString()/@Path.GetFileName(imgFiles)" width="150" height="150" />
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-info">No Images uploaded yet.</div>
             }
         }
     </div>
